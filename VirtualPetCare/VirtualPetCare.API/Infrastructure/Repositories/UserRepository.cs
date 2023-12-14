@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VirtualPetCare.API.Data.Entity;
+using VirtualPetCare.API.Domain.Entities;
 using VirtualPetCare.API.Domain.Interfaces;
 using VirtualPetCare.API.Persistence;
 

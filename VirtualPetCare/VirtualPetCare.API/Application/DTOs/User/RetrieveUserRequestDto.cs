@@ -1,8 +1,6 @@
-﻿using VirtualPetCare.API.Data.Entity.Core;
+﻿namespace VirtualPetCare.API.Application.DTOs.User;
 
-namespace VirtualPetCare.API.Domain.Entities;
-
-public class User : Entity
+public class RetrieveUserRequestDto
 {
     public string Name { get; set; }
 

@@ -1,6 +1,37 @@
-﻿namespace VirtualPetCare.API.Application.Services;
+﻿using AutoMapper;
+using VirtualPetCare.API.Application.DTOs.User;
+using VirtualPetCare.API.Application.Interfaces;
+using VirtualPetCare.API.Domain.Entities;
+using VirtualPetCare.API.Domain.Interfaces;
 
-public class UserService
+namespace VirtualPetCare.API.Application.Services;
+
+public class UserService : IUserService
 {
+    private readonly IUserRepository _repository;
+    private readonly IMapper _mapper;
+
+    public UserService(IUserRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
     
+    public async Task<RetrieveUserRequestDto?> GetByIdAsync(Guid id)
+    {
+        var user = await _repository.GetByIdAsync(id);
+
+        var userDto = _mapper.Map<RetrieveUserRequestDto>(user);
+
+        return userDto;
+    }
+
+    public async Task<CreateUserRequestDto> CreateAsync(CreateUserRequestDto createUserRequestDto)
+    {
+        var user = _mapper.Map<User>(createUserRequestDto);
+
+        await _repository.CreateAsync(user);
+
+        return createUserRequestDto;
+    }
 }
