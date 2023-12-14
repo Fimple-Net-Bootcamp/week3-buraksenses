@@ -11,4 +11,6 @@ public class RetrievePetRequestDto
     public string Color { get; set; }
     
     public float Weight { get; set; }
+    
+    public Guid UserId { get; set; }
 }
