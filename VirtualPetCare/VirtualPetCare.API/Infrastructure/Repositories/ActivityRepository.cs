@@ -14,9 +14,9 @@ public class ActivityRepository : IActivityRepository
         _dbContext = dbContext;
     }
     
-    public async Task<Activity?> GetByIdAsync(Guid id)
+    public async Task<Activity?> GetPetActivities(Guid petId)
     {
-        return await _dbContext.Activities.FirstOrDefaultAsync(x => x.Id == id);
+        return await _dbContext.Activities.FirstOrDefaultAsync(x => x.PetId == petId);
     }
 
     public async Task<Activity> CreateAsync(Activity activity)
