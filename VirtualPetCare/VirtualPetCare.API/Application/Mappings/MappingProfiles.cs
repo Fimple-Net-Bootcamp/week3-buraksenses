@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using VirtualPetCare.API.Application.DTOs.Activity;
 using VirtualPetCare.API.Application.DTOs.Pet;
 using VirtualPetCare.API.Application.DTOs.User;
 using VirtualPetCare.API.Data.Entity;
@@ -21,5 +22,10 @@ public class MappingProfiles : Profile
         CreateMap<Pet, CreatePetRequestDto>().ReverseMap();
 
         CreateMap<Pet, UpdatePetRequestDto>().ReverseMap();
+        
+        //ACTIVITY MAPPINGS
+        CreateMap<Activity, CreateActivityRequestDto>().ReverseMap();
+
+        CreateMap<Activity, RetrieveActivityRequestDto>().ReverseMap();
     }
 }
