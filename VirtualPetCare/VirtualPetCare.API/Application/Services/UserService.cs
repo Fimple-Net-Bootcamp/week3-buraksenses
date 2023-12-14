@@ -21,9 +21,7 @@ public class UserService : IUserService
     {
         var user = await _repository.GetByIdAsync(id);
 
-        var userDto = _mapper.Map<RetrieveUserRequestDto>(user);
-
-        return userDto;
+        return _mapper.Map<RetrieveUserRequestDto>(user);
     }
 
     public async Task<CreateUserRequestDto> CreateAsync(CreateUserRequestDto createUserRequestDto)
