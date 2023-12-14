@@ -19,6 +19,6 @@ public class Nutrition : Entity
 
     [NotMapped]
     public string[]? ForWhichPet { get; set; }
-
+    
     public int Quantity { get; set; }
 }
