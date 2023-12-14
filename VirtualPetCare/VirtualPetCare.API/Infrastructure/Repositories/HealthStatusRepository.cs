@@ -15,23 +15,24 @@ public class HealthStatusRepository : IHealthStatusRepository
         _dbContext = dbContext;
     }
     
-    public async Task<HealthStatus?> GetByIdAsync(Guid id)
+    public async Task<HealthStatus?> GetByIdAsync(Guid petId)
     {
-        return await _dbContext.HealthStatusList.FirstOrDefaultAsync(x => x.Id == id);
+        return await _dbContext.HealthStatusList.FirstOrDefaultAsync(x => x.PetId == petId);
     }
 
-    public async Task<HealthStatus?> UpdateAsync(Guid id, HealthStatus healthStatus)
+    public async Task<HealthStatus?> UpdateAsync(Guid petId, HealthStatus healthStatus)
     {
-        var updatingStatus = await _dbContext.HealthStatusList.FirstOrDefaultAsync(x => x.Id == id);
+        var updatingStatus = await _dbContext.HealthStatusList.FirstOrDefaultAsync(x => x.PetId == petId);
 
         if (updatingStatus == null)
             return null;
-
-        updatingStatus.Pet = healthStatus.Pet;
+        
         updatingStatus.VaccinationStatus = healthStatus.VaccinationStatus;
         updatingStatus.Notes = healthStatus.Notes;
         updatingStatus.CheckupDate = healthStatus.CheckupDate;
-        updatingStatus.PetId = healthStatus.PetId;
+
+        _dbContext.HealthStatusList.Update(updatingStatus);
+        await _dbContext.SaveChangesAsync();
 
         return updatingStatus;
     }
