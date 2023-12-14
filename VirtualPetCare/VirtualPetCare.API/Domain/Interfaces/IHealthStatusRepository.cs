@@ -5,7 +5,7 @@ namespace VirtualPetCare.API.Domain.Interfaces;
 
 public interface IHealthStatusRepository
 {
-    Task<HealthStatus> GetByIdAsync(Guid id);
+    Task<HealthStatus?> GetByIdAsync(Guid id);
 
-    Task UpdateAsync(Guid id, UpdateHealthStatusRequestDto updateHealthStatusRequestDto);
+    Task<HealthStatus?> UpdateAsync(Guid id, HealthStatus healthStatus);
 }

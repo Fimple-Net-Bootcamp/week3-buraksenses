@@ -3,9 +3,9 @@ using VirtualPetCare.API.Data.Entity;
 
 namespace VirtualPetCare.API.Domain.Interfaces;
 
-public interface INutrition
+public interface INutritionRepository
 {
     Task<List<Nutrition>> GetAllAsync();
 
-    Task CreateAsync(Nutrition nutrition);
+    Task<Nutrition> CreateAsync(Nutrition nutrition);
 }

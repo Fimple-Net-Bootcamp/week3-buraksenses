@@ -3,9 +3,9 @@ using VirtualPetCare.API.Data.Entity;
 
 namespace VirtualPetCare.API.Domain.Interfaces;
 
-public interface IActivity
+public interface IActivityRepository
 {
-    Task<Activity> GetByIdAsync(Guid id);
+    Task<Activity?> GetByIdAsync(Guid id);
 
-    Task CreateAsync(CreateActivityRequestDto createActivityRequestDto);
+    Task<Activity> CreateAsync(Activity activity);
 }

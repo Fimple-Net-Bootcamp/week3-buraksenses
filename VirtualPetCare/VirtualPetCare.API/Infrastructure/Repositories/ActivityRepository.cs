@@ -5,26 +5,24 @@ using VirtualPetCare.API.Persistence;
 
 namespace VirtualPetCare.API.Infrastructure.Repositories;
 
-public class UserRepository : IUserRepository
+public class ActivityRepository : IActivityRepository
 {
     private readonly VirtualPetCareDbContext _dbContext;
 
-    public UserRepository(VirtualPetCareDbContext dbContext)
+    public ActivityRepository(VirtualPetCareDbContext dbContext)
     {
         _dbContext = dbContext;
     }
     
-    public async Task<User?> GetByIdAsync(Guid id)
+    public async Task<Activity?> GetByIdAsync(Guid id)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
-
-        return user;
+        return await _dbContext.Activities.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<User> CreateAsync(User user)
+    public async Task<Activity> CreateAsync(Activity activity)
     {
-        await _dbContext.Users.AddAsync(user);
+        await _dbContext.Activities.AddAsync(activity);
         await _dbContext.SaveChangesAsync();
-        return user;
+        return activity;
     }
 }
