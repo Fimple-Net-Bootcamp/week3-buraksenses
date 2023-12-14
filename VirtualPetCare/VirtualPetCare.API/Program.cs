@@ -25,19 +25,18 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-using var scope = app.Services.CreateScope();
-var services = scope.ServiceProvider;
-
-try
-{
-    var context = services.GetRequiredService<VirtualPetCareDbContext>();
-    await context.Database.MigrateAsync();
-    await 
-}
-catch (Exception e)
-{
-    Console.WriteLine(e);
-    throw;
-}
+// using var scope = app.Services.CreateScope();
+// var services = scope.ServiceProvider;
+//
+// try
+// {
+//     var context = services.GetRequiredService<VirtualPetCareDbContext>();
+//     await context.Database.MigrateAsync();
+// }
+// catch (Exception e)
+// {
+//     Console.WriteLine(e);
+//     throw;
+// }
 
 app.Run();
