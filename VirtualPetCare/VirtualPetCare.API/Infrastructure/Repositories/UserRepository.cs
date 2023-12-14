@@ -15,13 +15,17 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
     
-    public async Task<User> GetByIdAsync(Guid id)
+    public async Task<User?> GetByIdAsync(Guid id)
     {
-        
+        var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+        return user;
     }
 
-    public Task CreateAsync(CreateUserRequestDto createUserRequestDto)
+    public async Task<User> CreateAsync(User user)
     {
-        return null;
+        await _dbContext.Users.AddAsync(user);
+        await _dbContext.SaveChangesAsync();
+        return user;
     }
 }

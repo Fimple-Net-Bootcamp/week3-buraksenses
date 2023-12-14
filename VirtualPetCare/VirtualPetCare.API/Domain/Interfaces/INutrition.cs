@@ -7,5 +7,5 @@ public interface INutrition
 {
     Task<List<Nutrition>> GetAllAsync();
 
-    Task CreateAsync(CreateNutritionRequestDto createNutritionRequestDto);
+    Task CreateAsync(Nutrition nutrition);
 }

@@ -5,7 +5,7 @@ namespace VirtualPetCare.API.Domain.Interfaces;
 
 public interface IUserRepository
 {
-    Task<User> GetByIdAsync(Guid id);
+    Task<User?> GetByIdAsync(Guid id);
 
-    Task CreateAsync(CreateUserRequestDto createUserRequestDto);
+    Task<User> CreateAsync(User user);
 }
