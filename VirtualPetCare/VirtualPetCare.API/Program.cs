@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using VirtualPetCare.API.Extensions;
+using VirtualPetCare.API.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,18 +24,19 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// using var scope = app.Services.CreateScope();
-// var services = scope.ServiceProvider;
-//
-// try
-// {
-//     var context = services.GetRequiredService<VirtualPetCareDbContext>();
-//     await context.Database.MigrateAsync();
-// }
-// catch (Exception e)
-// {
-//     Console.WriteLine(e);
-//     throw;
-// }
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+try
+{
+    var context = services.GetRequiredService<VirtualPetCareDbContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedData(context);
+}
+catch (Exception e)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(e,"An error occured during migration");
+}
 
 app.Run();
