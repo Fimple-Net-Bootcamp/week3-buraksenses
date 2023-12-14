@@ -20,4 +20,6 @@ public class VirtualPetCareDbContext : DbContext
     public DbSet<HealthStatus> HealthStatusList { get; set; }
 
     public DbSet<Nutrition> Nutritions { get; set; }
+
+    public DbSet<PetNutrition> PetNutritions { get; set; }
 }
