@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VirtualPetCare.API.Controllers.Core;
+using VirtualPetCare.API.API.Controllers.Core;
 
 namespace VirtualPetCare.API.API.Controllers;
 

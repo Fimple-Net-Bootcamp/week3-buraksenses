@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using VirtualPetCare.API.API.Controllers.Core;
 using VirtualPetCare.API.Application.DTOs.Activity;
 using VirtualPetCare.API.Application.Interfaces;
-using VirtualPetCare.API.Controllers.Core;
 using VirtualPetCare.API.Data.Entity;
 
 namespace VirtualPetCare.API.API.Controllers;

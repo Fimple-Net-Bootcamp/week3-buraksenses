@@ -7,5 +7,5 @@ public interface INutritionService
 {
     Task<List<RetrieveNutritionRequestDto>> GetAllAsync();
 
-    Task<CreatePetNutritionRequestDto> FeedPetAsync(Guid petId, CreatePetNutritionRequestDto requestDto);
+    Task<CreatePetNutritionRequestDto> CreatePetNutritionAsync(Guid petId, CreatePetNutritionRequestDto requestDto);
 }

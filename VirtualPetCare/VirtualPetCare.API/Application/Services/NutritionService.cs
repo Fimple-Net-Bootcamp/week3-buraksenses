@@ -31,7 +31,7 @@ public class NutritionService : INutritionService
         return nutritionsDto;
     }
 
-    public async Task<CreatePetNutritionRequestDto> FeedPetAsync(Guid petId, CreatePetNutritionRequestDto requestDto)
+    public async Task<CreatePetNutritionRequestDto> CreatePetNutritionAsync(Guid petId, CreatePetNutritionRequestDto requestDto)
     {
         var pet = await _petRepository.GetByIdAsync(petId);
 
