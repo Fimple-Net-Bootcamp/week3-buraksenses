@@ -2,5 +2,9 @@
 
 public class CreateNutritionRequestDto
 {
-    
+    public string Name { get; set; }
+
+    public float Calories { get; set; }
+
+    public int Quantity { get; set; }
 }
