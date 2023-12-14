@@ -38,7 +38,10 @@ public class PetRepository : IPetRepository
         if (updatingPet == null)
             return null;
 
-        _dbContext.Entry(updatingPet).CurrentValues.SetValues(pet);
+        updatingPet.Color = pet.Color;
+        updatingPet.Weight = pet.Weight;
+        updatingPet.Name = pet.Name;
+        
         await _dbContext.SaveChangesAsync();
         return updatingPet;
     }
