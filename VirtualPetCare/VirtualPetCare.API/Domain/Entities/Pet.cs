@@ -12,6 +12,7 @@ public class Pet : Entity
     public string Gender { get; set; }
 
     public string Color { get; set; }
+    
     public float Weight { get; set; }
 
     public Guid UserId { get; set; }
