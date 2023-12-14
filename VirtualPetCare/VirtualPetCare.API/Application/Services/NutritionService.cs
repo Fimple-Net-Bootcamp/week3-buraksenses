@@ -42,6 +42,8 @@ public class NutritionService : INutritionService
 
         var petNutrition = _mapper.Map<PetNutrition>(requestDto);
 
+        petNutrition.PetId = petId;
+
         await _petNutritionRepository.CreateAsync(petNutrition);
 
         return requestDto;
