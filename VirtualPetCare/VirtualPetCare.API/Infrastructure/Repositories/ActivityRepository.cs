@@ -1,4 +1,5 @@
-﻿using VirtualPetCare.API.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using VirtualPetCare.API.Data.Entity;
 using VirtualPetCare.API.Domain.Interfaces;
 using VirtualPetCare.API.Persistence;
 
@@ -15,7 +16,7 @@ public class ActivityRepository : IActivityRepository
     
     public async Task<List<Activity>?> GetPetActivities(Guid petId)
     {
-        var activities = _dbContext.Activities.Where(x => x.PetId == petId).ToList();
+        var activities = await _dbContext.Activities.Where(x => x.PetId == petId).ToListAsync();
 
         return activities;
     }

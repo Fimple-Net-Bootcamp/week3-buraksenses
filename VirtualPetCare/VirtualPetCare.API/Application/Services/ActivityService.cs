@@ -17,11 +17,11 @@ public class ActivityService : IActivityService
         _mapper = mapper;
     }
     
-    public async Task<RetrieveActivityRequestDto?> GetByIdAsync(Guid id)
+    public async Task<List<RetrieveActivityRequestDto>?> GetPetActivitiesAsync(Guid id)
     {
         var activity = await _repository.GetPetActivities(id);
         
-        return _mapper.Map<RetrieveActivityRequestDto>(activity);
+        return _mapper.Map<List<RetrieveActivityRequestDto>>(activity);
     }
 
     public async Task<CreateActivityRequestDto> CreateAsync(CreateActivityRequestDto requestDto)
