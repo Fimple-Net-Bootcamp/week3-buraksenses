@@ -5,7 +5,7 @@ namespace VirtualPetCare.API.Domain.Interfaces;
 
 public interface IActivityRepository
 {
-    Task<Activity?> GetPetActivities(Guid petId);
+    Task<List<Activity>?> GetPetActivities(Guid petId);
 
     Task<Activity> CreateAsync(Activity activity);
 }

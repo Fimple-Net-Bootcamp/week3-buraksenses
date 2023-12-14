@@ -1,5 +1,7 @@
-﻿namespace VirtualPetCare.API.Data.Entity;
-using Core;
+﻿using VirtualPetCare.API.Data.Entity;
+using VirtualPetCare.API.Data.Entity.Core;
+
+namespace VirtualPetCare.API.Domain.Entities;
 
 public class HealthStatus : Entity
 {
