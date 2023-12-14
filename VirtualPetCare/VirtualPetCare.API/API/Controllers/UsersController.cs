@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VirtualPetCare.API.Controllers.Core;
 
-namespace VirtualPetCare.API.Controllers;
+namespace VirtualPetCare.API.API.Controllers;
 
 [Route("users")]
 public class UsersController : BaseApiController
