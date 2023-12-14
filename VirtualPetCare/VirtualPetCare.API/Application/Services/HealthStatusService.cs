@@ -1,6 +1,8 @@
-﻿namespace VirtualPetCare.API.Application.Services;
+﻿using VirtualPetCare.API.Application.Interfaces;
 
-public class HealthStatusService
+namespace VirtualPetCare.API.Application.Services;
+
+public class HealthStatusService : IHealthStatusService
 {
     
 }
