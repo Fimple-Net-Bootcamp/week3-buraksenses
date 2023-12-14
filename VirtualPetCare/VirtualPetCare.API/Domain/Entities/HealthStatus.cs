@@ -11,8 +11,6 @@ public class HealthStatus : Entity
 
     public string VaccinationStatus { get; set; }
 
-    public float Weight => Pet.Weight;
-
     public Guid PetId { get; set; }
     
     //Navigation Properties
