@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VirtualPetCare.API.Application.Mappings;
-using VirtualPetCare.API.Data.Entity;
 using VirtualPetCare.API.Domain.Interfaces;
 using VirtualPetCare.API.Infrastructure.Repositories;
 using VirtualPetCare.API.Persistence;
@@ -26,6 +25,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IActivityRepository, ActivityRepository>();
         services.AddScoped<INutritionRepository, NutritionRepository>();
         services.AddScoped<IHealthStatusRepository, HealthStatusRepository>();
+        services.AddScoped<IPetNutritionRepository, PetNutritionRepository>();
         
         return services;
     }
