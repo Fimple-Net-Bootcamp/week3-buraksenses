@@ -5,7 +5,7 @@ using VirtualPetCare.API.Controllers.Core;
 
 namespace VirtualPetCare.API.API.Controllers;
 
-[Route("users")]
+[Route("api/v1/users")]
 public class UsersController : BaseApiController
 {
     private readonly IUserService _service;
@@ -28,10 +28,10 @@ public class UsersController : BaseApiController
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAsync(CreateUserRequestDto requestDto)
+    public async Task<IActionResult> CreateAsync([FromBody] CreateUserRequestDto requestDto)
     {
         await _service.CreateAsync(requestDto);
 
-        return CreatedAtAction(nameof(GetById), requestDto);
+        return Ok(requestDto);
     }
 }

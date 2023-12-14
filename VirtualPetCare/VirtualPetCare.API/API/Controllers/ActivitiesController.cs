@@ -7,7 +7,7 @@ using VirtualPetCare.API.Data.Entity;
 
 namespace VirtualPetCare.API.API.Controllers;
 
-[Route("activities")]
+[Route("api/v1/activities")]
 public class ActivitiesController : BaseApiController
 {
     private readonly IActivityService _activityService;
