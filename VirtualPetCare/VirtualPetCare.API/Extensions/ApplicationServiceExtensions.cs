@@ -25,6 +25,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IActivityRepository, ActivityRepository>();
         services.AddScoped<INutritionRepository, NutritionRepository>();
+        services.AddScoped<IHealthStatusRepository, HealthStatusRepository>();
         
         return services;
     }
